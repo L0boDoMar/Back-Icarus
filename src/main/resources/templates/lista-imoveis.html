@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style/global-style.css" th:href="@{/style/global-style.css}">
+    <link rel="stylesheet" href="style/lista-imoveis.css" th:href="@{/style/lista-imoveis.css}">
+
+    <script src="script/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/fe8dd15147.js" crossorigin="anonymous" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coda&display=swap" rel="stylesheet">
+
+
+    <title>Home | Icarus</title>
+</head>
+
+<body>
+
+
+    <!-- CABECALHO  -->
+
+    <header class="cabecalho">
+         <div class="navBar-container">
+            <nav class="navBar">
+               <h1><a href="/"><img src="assets/logo_5.png" width="140px" alt=""></a></h1>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/listaimoveis">Imóveis</a></li>
+                    <li><a href="/sobrenos">Sobre Nós</a></li>
+                    <li><a href="/suporte">Central de Ajuda</a></li>
+                </ul>
+                <div class="opcoes-conta-container">
+            <div class="opcoes-conta">
+                <div class="caixa-opcoes">
+                    <img src="icons/Triangulo.svg">
+                    <ul>
+                        <li>Configurações do Perfil</li>
+                        <li><a href="lista-imoveis.html">Meus Imóveis</a></li>
+                        <li>Favoritos</li>
+                        <a href="index.html">
+                            <li>Sair da Conta</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+                <button class="menu">
+                    <img src="icons/Menu.svg">
+                </button>
+            </nav>
+        </div>
+        <div class="cabecalho-meus-imoveis">
+            <h2>Meus Imoveis</h2>
+        </div>
+    </header>
+
+    <main class="principal">
+       <section class="sessao-imoveis" >
+                <div class="imoveis" th:each="imovel : ${imovellist}">
+                <img th:src="@{/mostrarImagem/{picture}(picture=${imovel.picture})}">
+                <div class="titulo"><h2 th:text="${imovel.name}"></h2></div>
+                <div class="descricao">
+                <p th:text="${imovel.description}"></p>
+                </div>
+                <div class="btn-div">
+            	<button type="button" class="btn-lista-imovel"><a th:href="${(#mvc.url('CIC#dashboardimoveis').arg(0, imovel.id)).build()}">Visualizar Imóvel</a></button>
+           	 <button type="button" class="btn-lista-imovel"><a th:href="@{alterar/{id}(id=${imovel.id})}"><i class="fas fa-pen"></i>Editar Anúncio</a></button>
+            </div>
+            </div>
+            
+           
+       </section>
+       <div class="btn-criar"><button><a th:href="@{novoimovel}">Anunciar Imóvel</a></button></div>
+ 
+    </main>

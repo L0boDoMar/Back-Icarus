@@ -1,0 +1,351 @@
+/* ROOT and IMPORT*/
+
+@import url('https://fonts.googleapis.com/css2?family=Coda&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,500;1,700;1,900&display=swap');
+
+:root {
+    --green: #299689;
+    --secundaria: #FFFFFF;
+    --terciaria: #1F1E1F;
+    --normalFont: 'Coda', sans-serif;
+    --displayFont: Coda;
+}
+
+
+/* RESET */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+input{
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+selector:focus {
+    outline: none;
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+a:focus {
+    color: white;
+}
+
+button {
+    border: none;
+    border-radius: none;
+}
+
+body {
+    background-color: var(--green);
+    font-family: var(--normalFont);
+}
+
+::selection {
+    background-color: var(--terciaria);
+}
+
+/* Barra de rolagem */
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* HEADER */
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    color: var(--secundaria);
+}
+
+.navBar-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1F1E1F;
+    z-index: 20000;
+    border-bottom: solid 0px rgba(0, 0, 0, 0.1);
+    transition: 1s;
+}
+
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 75px;
+    height: 75px;
+    transition: 0.5s;
+}
+
+.navBar ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    gap: 35px;
+}
+
+.navBar ul li {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.navBar .login-singin {
+    display: flex;
+    justify-content: space-between;
+    width: 240px;
+}
+
+.navBar .login-singin .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 107px;
+    height: 45px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    border: 2px solid var(--secundaria);
+}
+
+.navBar .login-singin .button img {
+    margin-right: 10px;
+    width: 26px;
+}
+
+.navBar .login-singin .button.invert-button {
+    background: var(--secundaria);
+    color: var(--green);
+    border-color: transparent;
+}
+
+/* Menu de hamburber */
+
+.menu {
+    display: none;
+    outline: none;
+    background: none;
+}
+
+/* efeito ao scrollar a navbar */
+
+/* .navBar-container.efeito-scroll {
+    background: rgba(0, 0, 0, 0.1);
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+} */
+
+/* NavBar menu hamburguer */
+
+.navBar-container.active .navBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 0 75px;
+    text-align: right;
+    background-color: var(--terciaria);
+    width: 350px;
+    margin: 0;
+}
+
+.navBar-container.active .navBar ul {
+    flex-direction: column;
+    gap: 50px;
+    display: flex;
+}
+
+.navBar-container.active .navBar .login-singin {
+    flex-direction: column;
+    gap: 30px;
+    width: initial;
+    display: flex;
+}
+
+.navBar-container.active .navBar .menu {
+    display: block !important;
+}
+
+/* Organização dos elementos na navbar responsiva */
+
+.navBar-container.active .navBar> :nth-child(1) {
+    order: 1;
+}
+
+.navBar-container.active .navBar> :nth-child(2) {
+    order: 3;
+}
+
+.navBar-container.active .navBar> :nth-child(3) {
+    order: 2;
+}
+
+.navBar-container.active .navBar> :nth-child(4) {
+    order: 4;
+}
+
+/* Opções da Conta (Logado) */
+
+.navBar .sem-singin {
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
+}
+
+.navBar .sem-singin .botao-conta {
+    width: 140px;
+}
+
+.opcoes-conta-container {
+    display: flex;
+    width: 100vw;
+    position: fixed;
+    top: 95px;
+    justify-content: center;
+}
+
+.opcoes-conta {
+    display: flex;
+    margin: 0 75px;
+    width: calc(100% - 150px);
+    justify-content: flex-end;
+    max-width: 1400px;
+    transition: 1s;
+
+    overflow: hidden;
+    height: 0;
+}
+
+.caixa-opcoes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 2000;
+}
+
+.caixa-opcoes>img {
+    width: 18px;
+}
+
+.opcoes-conta ul {
+    background-color: var(--terciaria);
+    width: 220px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.opcoes-conta.active {
+    display: flex;
+    height: auto;
+}
+
+
+/* FOOTER */
+
+.footer {
+    width: 100%;
+    height: 90px;
+    background-color: var(--terciaria);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer nav {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 75px;
+}
+
+.footer nav h3 {
+    font-family: var(--displayFont);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.025em;
+    color: var(--secundaria);
+}
+
+.footer nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+.footer nav ul li {
+    list-style: none;
+}
+
+.footer nav ul li a {
+    color: var(--secundaria);
+    opacity: 0.5;
+}
+
+.footer nav ul li a:hover,
+.footer nav ul li a:focus {
+    transition: 0.5s;
+    opacity: 1;
+}
+
+
+/* -----------------
+    RESPONSIVIDADE 
+-------------------*/
+
+@media screen and (max-width: 1000px) {
+
+    .navBar ul {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .navBar .login-singin {
+        display: none;
+    }
+
+    .footer {
+        height: 140px;
+    }
+
+    .footer nav {
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+}

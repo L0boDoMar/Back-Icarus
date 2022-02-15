@@ -1,0 +1,128 @@
+main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 75px;
+    gap: 200px;
+}
+
+main .titulo01{
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    font-size: 69px;
+    float: left;
+    text-align: left;
+    color: #FFF7EF;
+    margin-left: 18px;
+}
+
+.quadrado01{
+    background-color: #1F1E1F;
+    left: 0px;
+    width: 999px;
+    height: 680px;
+    padding: 100px;
+    top: 750px;
+    margin-bottom: 300px;
+}
+
+.quadrado02{
+    background-color: #FFF7EF;
+    position: absolute;
+    right: 0px;
+    width: 890px;
+    height: 600px;
+    margin-top: 395px;
+    font-size: 48px;
+    text-align: center;
+    padding: 70px;
+}
+
+.equipeicarus{
+    flex-direction: column;
+    display: flex;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0.1px;
+    color: white
+}
+
+.equipe{
+    transform: rotate(-90deg);
+    position: absolute;
+    font-size: 90px;
+    text-transform: uppercase;
+    margin-right: 970px;
+    margin-top: 100px;
+    margin-left: 325px;
+}
+
+.icarus{
+    text-transform: uppercase;
+    font-size: 90px;
+    margin-top: 400px;
+    margin-left: 500px;
+}
+
+.texto01{
+    font-size: 70px;
+    color: #FFF7EF;
+    margin-top: -390px;
+    margin-bottom: 300px;
+    margin-left: 35px;
+}
+
+.texto02{
+    font-size: 30px;
+    color: #FFF7EF;
+    text-align: right;
+    margin-top: -150px;
+    margin-bottom: 300px;
+    margin-right: 35px;
+}
+
+.bgsobre{
+    background-color: #FFF7EF;
+    height: 1900px;
+}
+
+.texto03{
+   font-size: 75px;
+   color: #299689;
+   margin-left: 600px;
+}
+
+.texto04{
+    font-size: 25px;
+    color: #1F1E1F;
+    margin-left: 600px;
+ }
+
+.imagem01{
+  float: left;
+  margin-left: 25px;
+  margin-top: -610px;
+  width: 600px;
+  height: 200px;
+}
+
+.texto05{
+  text-align: left;
+  font-size: 100px;
+  margin-bottom: 400px;
+  margin-top: 400px;
+  margin-right: 200px;
+  color: #C7FFD6;
+}
+.text{
+  color: #299689;
+  font-size: 100px;
+}
+
+.texto06{
+  text-align: left;
+  font-size: 30px ;
+  color: #1f1e1f;
+  margin-top: -300px;
+  margin-bottom: 0px;
+  margin-left: 50px;
+}

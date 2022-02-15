@@ -1,0 +1,270 @@
+/* Corpo da página */
+
+.navBar-container {
+    position: relative;
+}
+
+body {
+    background-color: var(--secundaria);
+}
+
+/* MAPA INTERATIVO  */
+#map {
+    width: 80%;
+    height: 90%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* MAPA */
+
+.mapa {
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    float: left;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+
+
+
+/* CONTAINER LISTA DS IMOVEIS  */
+.anuncio-do-imovel {
+    float: right;
+    width: 40%;
+    height: 100%;
+    padding: 40px 50px;
+    background: #299689;
+    color: white;
+}
+
+/* BARRA DE PESQUISA  */
+.pesquisa {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pesquisa label i {
+    color: #fff;
+    background: #299689;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+
+}
+
+.pesquisa input {
+    width: 90%;
+    color: #fff;
+    border-radius: 10px 0 0 10px;
+    height: 60px;
+    background: var(--terciaria);
+    font-family: Coda;
+    padding: 0 10px;
+    font-size: 1.2rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+}
+
+.pesquisa label {
+
+    background: var(--terciaria);
+    height: 50px;
+    width: 50px;
+    border-radius: 0px 10px 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* FILTROS */
+
+.filtro {
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    flex-direction: row;
+    display: flex;
+    column-gap: 20px;
+}
+
+.filtro select {
+    outline: none;
+    background: none;
+    color: black;
+}
+
+.filtro button {
+    background-color: #fff;
+    color: black;
+    height: 60px;
+    width: 170px;
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    column-gap: 10px;
+    font-size: 1.3rem;
+}
+
+/* RESULTADOS DA BUSCA  */
+.resultado {
+
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+}
+
+.resultado span {
+    font-size: 1.7rem;
+}
+
+
+/* LISTA DE IMOVEIS  */
+.imoveis::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* LISTA DE IMOVEIS */
+
+
+.imoveis {
+  
+    overflow-y: scroll;
+    width: 100%;
+    height: 71vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* CONTAINER IMOVEIS  */
+.anuncio-1 {
+    margin-top: 40px;
+    width: 100%;
+    min-height: 223px;
+    background-color: var(--secundaria);
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+.foto {
+    grid-area: foto;
+    width: 150px;
+    height: 100%;
+}
+.info-imovel {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+    row-gap: 10px;
+    padding: 10px;
+}
+.titulo {
+    font-size: 2rem;
+}
+.preco {
+    font-size: 1.5rem;
+    color: green;
+}
+.specs {
+    grid-area: icone;
+}
+.foto img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* RESPONSIVIDADE ANUNCIOS IMOVEIS  */
+@media only screen and (max-width:768px) {
+
+    .mapa {
+        float: none;
+        width: 100%;
+    }
+
+
+    .anuncio-do-imovel {
+        float: none;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        padding: 20px 50px;
+        background: #299689;
+    }
+
+
+    .resultado span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+
+    .filtro {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media only screen and (max-width:425px) {
+        .pesquisa {
+            align-items: center;
+
+        }
+
+        .anuncio-do-imovel {
+            min-height: 100VH;
+            padding: 10px;
+        }
+
+
+        .anuncio-1 {
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+            max-height: auto;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .foto {
+            width: 100%;
+            height: 100%;
+        }
+
+        .foto img {
+            object-fit: cover;
+        }
+
+        .preco {
+            font-size: 1.5rem;
+            color: green;
+            justify-content: center;
+            display: flex;
+        }
+
+
+
+    }
+
+}

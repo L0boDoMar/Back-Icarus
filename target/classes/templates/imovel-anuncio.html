@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mapa Interativo</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="style/global-style.css" th:href="@{/style/global-style.css}">
+    <link rel="stylesheet" href="style/anuncio-imovel.css" th:href="@{/style/anuncio-imovel.css}">
+    <script src="script/script.js" th:src="@{/script/script.js}" defer></script>
+    <script src="script/index.js" th:src="@{/script/index.js}" defer></script>
+	 <script src="script/mapainterativo.js"  th:src="@{/script/mapainterativo.js}" defer></script>
+    <script src="https://kit.fontawesome.com/fe8dd15147.js" crossorigin="anonymous" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coda&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+   
+</head>
+<!-- NAVBAR -->
+
+<body>
+    <header>
+        <div class="navBar-container">
+            <nav class="navBar">
+                <h1><a href="/"><img src="assets/logo_5.png" width="140px" alt=""></a></h1>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/listaimoveis">Imóveis</a></li>
+                    <li><a href="/sobrenos">Sobre Nós</a></li>
+                    <li><a href="/suporte">Central de Ajuda</a></li>
+                </ul>
+                <div class="login-singin">
+                    <div class="button">CADASTRO</div>
+                    <div class="button invert-button"><img src="icons/perfil.svg"> LOGIN</div>
+                </div>
+                <button class="menu">
+                    <img src="icons/Menu.svg">
+                </button>
+            </nav>
+        </div>
+
+        <!-- Opções da conta (começa desativado) -->
+        <div class="opcoes-conta-container">
+            <div class="opcoes-conta">
+                <div class="caixa-opcoes">
+                    <img src="icons/Triangulo.svg">
+                    <ul>
+                        <li>Configurações do Perfil</li>
+                        <li><a href="lista-imoveis.html">Meus Imóveis</a></li>
+                        <li>Favoritos</li>
+                        <a href="index.html">
+                            <li>Sair da Conta</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+   
+    <main class="anuncio-do-imovel" th:each="listagemImovel : ${listagemImovel}">
+
+        <div class="fotos">
+            <div class="foto-sequence">
+                <img  th:src="@{/mostrarImagem/{picture}(picture=${listagemImovel.picture})}" src="assets/96026334.jpg" width="200"></div>
+        </div>
+   
+        <div class="informaxoes-imovel">
+            <div class="nome-imovel">
+                <span class="titulo" th:text="${listagemImovel.name}"></span>
+                <div class="endereco"><span th:text="${listagemImovel.street}"></span> <span th:text="${listagemImovel.number}"> N°107 </span></div>
+            </div>
+        </div>
+        <div class="descricao" >
+            <h2>Descrição</h2>
+            <p th:text="${listagemImovel.description}"></p>
+        </div>
+        
+        <div class="preco">
+         
+                <span class="total">Total </span>
+                <span class="valor-din">R$ <span th:text="${listagemImovel.rent_price}"></span></span>
+        </div>
+
+        <div class="especificacoes">
+            <span><i class="fas fa-toilet"></i><p th:text="${listagemImovel.bathrooms}"></p></span>
+            <span><i class="fas fa-ruler-combined"></i><p th:text="${listagemImovel.area}"></p>m²</span>
+            <span><i class="fas fa-user-secret"></i><p th:text="${listagemImovel.surveillance}"></p></span>
+            <span><i class="fas fa-car"></i><p th:text="${listagemImovel.parkinglots}"></p></span>
+            <span><i class="fas fa-hard-hat"></i><p th:text="${listagemImovel.construction_year}"></p></span>
+        </div>
+
+
+       
+        <div class="botao">
+            <button class="btn-locador"><i class="fab fa-whatsapp"></i><a href="https://api.whatsapp.com/send?phone=5511952857580&text=Ol%C3%A1%2C%20vim%20pelo%20anuncio%20do%20Galp%C3%A3o%20da%20Rua%20Santa%20Luzia%20N%C2%BA107"> Contate o locador </a></button>
+            <button class="btn-locador1"><i class="fas fa-exclamation-triangle"></i> Denuncie</button>
+            <button class="btn-locador2"><i class="fas fa-share"></i> Compartilhar</button>
+        </div>
+
+    </main>
+    <aside class="mapa">
+        <div id="map">
+
+        </div>
+    </aside>
+    <footer class="footer muda-cor">
+        <nav>
+            <h3>Política de Privacidade</h3>
+            <h3>© 2021 - Icarus Imóveis</h3>
+            <ul>
+                <li><a href=""><img src="icons/Facebook.png" alt=""></a></li>
+                <li><a href=""><img src="icons/Linkedin.png" alt=""></a></li>
+                <li><a href=""><img src="icons/GitHub.svg" alt=""></a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>

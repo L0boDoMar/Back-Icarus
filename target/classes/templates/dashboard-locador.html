@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/dashboard.css" th:href="@{/style/dashboard.css}">
+    <link rel="stylesheet" href="style/global-style.css" th:href="@{/style/global-style.css}">
+    <script src="https://kit.fontawesome.com/fe8dd15147.js" crossorigin="anonymous" defer></script>
+    <script src="script/script.js"  th:src="@{/script/script.js}" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coda&display=swap" rel="stylesheet">
+	 <link rel="shortcut icon" href="assets/favicon.ico" th:href="@{assets/favicon.ico}">
+
+</head>
+<body>
+
+    <!-- NAVBAR  -->
+    <header class="cabecalho">
+        <div class="navBar-container">
+            <nav class="navBar">
+                <h1><a href="/"><img src="assets/logo_5.png" width="140px" alt=""></a></h1>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/listaimoveis">Imóveis</a></li>
+                    <li><a href="/sobrenos">Sobre Nós</a></li>
+                    <li><a href="/suporte">Central de Ajuda</a></li>
+                </ul>
+                <div class="login-singin">
+                    <div class="button">CADASTRO</div>
+                    <div class="button invert-button"><img src="icons/perfil.svg"> LOGIN</div>
+                </div>
+                <button class="menu">
+                    <img src="icons/Menu.svg">
+                </button>
+            </nav>
+        </div>
+        
+        
+        
+        <div class="cabecalho-meus-imoveis">
+            <form th:each="dashboardimovel : ${dashboardimovel}">
+            <a href="/meusimoveis"><i class="fas fa-angle-double-left"></i> Voltar a Meus Imoveis</a>
+            <h2 th:text="${dashboardimovel.name}"></h2>
+            </form>
+        </div>
+        </header>
+<!--  -->
+
+
+<main>
+
+<section class="informacoes-servico">
+
+    <div class="carrossel" th:each="dashboardimovel : ${dashboardimovel}"> 
+        
+        <img  th:src="@{/mostrarImagem/{picture}(picture=${dashboardimovel.picture})}" src="assets/803_df899154-e3b9-4e5f-a1fb-6b23820b6011_thm.jpg" class="imagems-carrossel active "alt="">
+        
+    </div>
+<!-- DESCRICAO DO IMOVEL  -->
+
+<div class="servicos-dashboard">
+ 
+    <div class="preco-dashboard">
+    <form th:each="dashboardimovel : ${dashboardimovel}">
+       <span>R$<span th:text="${dashboardimovel.rent_price}"></span></span> 
+    </form>
+    
+    	<form th:each="dashboardimovel : ${dashboardimovel}">
+    <a th:href="${(#mvc.url('CIC#deletar').arg(0, dashboardimovel.id)).build()}"><i class="fas fa-pen"></i>EXCLUIR ANÚNCIO</a>
+    </form>
+     </div>
+
+   
+    <div class="descricao-dashboard">
+      <form th:each="dashboardimovel : ${dashboardimovel}">  
+        <h2>DESCRIÇÃO</h2>
+            <p th:text="${dashboardimovel.description}"></p>
+		</form>
+    </div>
+
+    <div class="dados-imovel-dashboard">
+    <form th:each="dashboardimovel : ${dashboardimovel}">
+        <h2>DADOS DO IMOVEL </h2>
+        <div class="dados-imovel-dashboard-especificacoes">
+            <div class="especificacoes-info">
+                <span class="titulo-especificacao-dashboard">Cidade</span>
+                <span class="conteudo-especificacao-dashboard" th:text="${dashboardimovel.city}"></span>
+            </div>
+            
+            <div class="especificacoes-info">
+                <span class="titulo-especificacao-dashboard">Bairro</span>
+                <span class="conteudo-especificacao-dashboard" th:text="${dashboardimovel.district}"></span>
+            </div>
+            
+            <div class="especificacoes-info">
+                <span class="titulo-especificacao-dashboard">Construido em</span>
+                <span class="conteudo-especificacao-dashboard" th:text="${dashboardimovel.construction_year}"></span>
+            </div>
+            
+            <div class="especificacoes-info">
+                <span class="titulo-especificacao-dashboard">Vigilância</span>
+                <span class="conteudo-especificacao-dashboard" th:text="${dashboardimovel.surveillance}"></span>
+            </div>
+            
+            <div class="especificacoes-info">
+                <span class="titulo-especificacao-dashboard">Estacionamento</span>
+                <span class="conteudo-especificacao-dashboard" th:text="${dashboardimovel.parkinglots}"></span>
+            </div>
+            
+            <div class="especificacoes-info">
+                <span class="titulo-especificacao-dashboard">Tamanho</span>
+                <span class="conteudo-especificacao-dashboard" th:text="${dashboardimovel.area}"></span>
+            </div>
+            
+            <div class="especificacoes-info">
+                <span class="titulo-especificacao-dashboard">Banheiros</span>
+                <span class="conteudo-especificacao-dashboard" th:text="${dashboardimovel.bathrooms}"></span>
+            </div>
+            
+            <div class="especificacoes-info">
+                <span class="titulo-especificacao-dashboard">Preço por m²</span>
+                <span class="conteudo-especificacao-dashboard" th:text="${dashboardimovel.price_perm2}"></span>
+            </div>
+            
+        
+    	</div>
+	</form>
+</div>
+
+</section>
+
+</main>
+
+</body>
+</html>
